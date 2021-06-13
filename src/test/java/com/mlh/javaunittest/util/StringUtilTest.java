@@ -14,6 +14,7 @@ public class StringUtilTest {
     public void repeat_string_multiple_times() {
         Assert.assertEquals("holaholahola", StringUtil.repeat("hola", 3));
     }
+
     @Test
     public void repeat_string_zero_times() {
         Assert.assertEquals("", StringUtil.repeat("hola", 0));
