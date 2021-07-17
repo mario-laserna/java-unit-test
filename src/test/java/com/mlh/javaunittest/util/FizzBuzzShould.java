@@ -22,34 +22,34 @@ public class FizzBuzzShould {
 
     @Test
     public void return_fizz_if_divisible_by_3() {
-        assertEquals(fizzBuzz.fizzBuzz(3), "Fizz");
-        assertEquals(fizzBuzz.fizzBuzz(6), "Fizz");
-        assertEquals(fizzBuzz.fizzBuzz(9), "Fizz");
-        assertEquals(fizzBuzz.fizzBuzz(27), "Fizz");
+        assertEquals("Fizz", fizzBuzz.fizzBuzz(3));
+        assertEquals("Fizz", fizzBuzz.fizzBuzz(6));
+        assertEquals("Fizz", fizzBuzz.fizzBuzz(9));
+        assertEquals("Fizz", fizzBuzz.fizzBuzz(27));
     }
 
     @Test
     public void return_buzz_if_divisible_by_5() {
-        assertEquals(fizzBuzz.fizzBuzz(5), "Buzz");
-        assertEquals(fizzBuzz.fizzBuzz(10), "Buzz");
-        assertEquals(fizzBuzz.fizzBuzz(20), "Buzz");
-        assertEquals(fizzBuzz.fizzBuzz(35), "Buzz");
+        assertEquals("Buzz", fizzBuzz.fizzBuzz(5));
+        assertEquals("Buzz", fizzBuzz.fizzBuzz(10));
+        assertEquals("Buzz", fizzBuzz.fizzBuzz(20));
+        assertEquals("Buzz", fizzBuzz.fizzBuzz(35));
     }
 
     @Test
     public void return_fizzbuzz_if_divisible_by_3_and_5() {
-        assertEquals(fizzBuzz.fizzBuzz(15), "FizzBuzz");
-        assertEquals(fizzBuzz.fizzBuzz(30), "FizzBuzz");
-        assertEquals(fizzBuzz.fizzBuzz(60), "FizzBuzz");
-        assertEquals(fizzBuzz.fizzBuzz(90), "FizzBuzz");
+        assertEquals("FizzBuzz", fizzBuzz.fizzBuzz(15));
+        assertEquals("FizzBuzz", fizzBuzz.fizzBuzz(30));
+        assertEquals("FizzBuzz", fizzBuzz.fizzBuzz(60));
+        assertEquals("FizzBuzz", fizzBuzz.fizzBuzz(90));
     }
 
     @Test
     public void return_number_if_not_divisible_by_3_and_or_5() {
-        assertEquals(fizzBuzz.fizzBuzz(1), "1");
-        assertEquals(fizzBuzz.fizzBuzz(2), "2");
-        assertEquals(fizzBuzz.fizzBuzz(13), "13");
-        assertEquals(fizzBuzz.fizzBuzz(16), "16");
-        assertEquals(fizzBuzz.fizzBuzz(82), "82");
+        assertEquals("1", fizzBuzz.fizzBuzz(1));
+        assertEquals("2", fizzBuzz.fizzBuzz(2));
+        assertEquals("13", fizzBuzz.fizzBuzz(13));
+        assertEquals("16", fizzBuzz.fizzBuzz(16));
+        assertEquals("82", fizzBuzz.fizzBuzz(82));
     }
 }
