@@ -3,6 +3,7 @@ package com.mlh.javaunittest.movies.service;
 import com.mlh.javaunittest.movies.data.MovieRepository;
 import com.mlh.javaunittest.movies.model.Genre;
 import com.mlh.javaunittest.movies.model.Movie;
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -14,10 +15,13 @@ import java.util.stream.Collectors;
 import static org.junit.Assert.*;
 
 public class MovieServiceShould {
+    private MovieRepository movieRepository;
+    private MovieService movieService;
 
-    @Test
-    public void return_movies_by_genre() {
-        MovieRepository movieRepository = Mockito.mock(MovieRepository.class);
+    @Before
+    public void setup(){
+        movieRepository = Mockito.mock(MovieRepository.class);
+
         Mockito.when(movieRepository.findAll()).thenReturn(
                 Arrays.asList(
                         new Movie(1, "Dark Knight", 152, Genre.ACTION),
@@ -30,12 +34,23 @@ public class MovieServiceShould {
                 )
         );
 
-        MovieService movieService = new MovieService(movieRepository);
+        movieService = new MovieService(movieRepository);
+    }
+
+    @Test
+    public void return_movies_by_genre() {
         Collection<Movie> movies = movieService.findMoviesByGenre(Genre.COMEDY);
+        assertEquals(Arrays.asList(3, 6), getMovieIds(movies));
+    }
 
-        List<Integer> movieIds = movies.stream().map(movie -> movie.getId())
+    @Test
+    public void return_names_by_lenght() {
+        Collection<Movie> movies = movieService.findMoviesByLength(119);
+        assertEquals(Arrays.asList(2, 3, 4, 5, 6), getMovieIds(movies));
+    }
+
+    private List<Integer> getMovieIds(Collection<Movie> movies) {
+        return movies.stream().map(movie -> movie.getId())
                 .collect(Collectors.toList());
-
-        assertEquals(Arrays.asList(3, 6), movieIds);
     }
 }
