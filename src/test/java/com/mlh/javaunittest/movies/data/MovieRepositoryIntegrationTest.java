@@ -51,6 +51,14 @@ public class MovieRepositoryIntegrationTest {
         assertEquals(new Movie(2, "Memento", 113, Genre.THRILLER), movie);
     }
 
+    @Test
+    public void insert_a_movie() {
+        Movie movie = new Movie("Super 8", 112, Genre.THRILLER);
+        movieRepositoryJdbc.saveOrUpdate(movie);
+        Movie movieFromBd = movieRepositoryJdbc.findById(4);
+        assertEquals(new Movie(4, "Super 8", 112, Genre.THRILLER), movieFromBd);
+    }
+
     @After
     public void tearDown() throws Exception {
         //borra todos los objetos de la bd después de la ejecución de cada test
